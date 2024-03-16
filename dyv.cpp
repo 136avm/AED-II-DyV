@@ -127,5 +127,4 @@ int main() {
         cout << "No se ha encontrado ninguna ocurrencia de " << C << " en la cadena." << endl;
     }
     return 0;
-    
 }
