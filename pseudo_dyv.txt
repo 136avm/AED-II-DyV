@@ -1,0 +1,98 @@
+PSEUDO CÓDIGO PARA EL EJERCICIO 5 DE LA PRÁCTICA DIVIDE Y VENCERÁS
+
+RESOLUCIÓN DIRECTA:
+
+func resolucionDirecta(A: string, C: char, m: int)
+
+	maxCont := 0
+	maxIdx := 0
+	n := A.length()	
+
+	para i:=0 hasta m hacer
+		si A[i] == C entonces
+			maxCont++
+		finsi
+	finpara
+	
+	para i:=1 hasta n-m+1 hacer
+		cont := maxCont
+		si A[i-1] == C entonces
+			cont--
+		finsi
+		si A[i+m-1] == C entonces
+			cont++
+		finsi
+		si cont > maxCont entonces
+			maxCont = cont
+			maxIdx = i
+		finsi
+		si maxCont == m entonces
+			return resultado
+		finsi
+	finpara
+	
+	return resultado
+
+end
+
+
+DIVIDE Y VENCERÁS:
+
+m := A.length()/1000
+
+func maxCarsTamM(A: string, C: char, m: int)
+
+	n := A.length()
+
+	si n >= 2m entonces
+		return combinar(maxCarsTamM(A[0, n/2-1], C, m), maxCarsTamM(A[n/2, n-1], C, m), A, C, m)
+	sino
+		return resolucionDirecta(A, C, m)
+	finsi
+
+end
+
+
+COMBINAR:
+
+func combinar(res1, res2, A: string, C: char, m: int)
+	
+	cont := 0
+	res2[0] += A.length()/2
+	solucion := max(res1, res2)
+	
+	si solucion == m entonces
+		return solucion
+	finsi
+
+	para i:=A.length()/2-m+1 hasta A.length()/2+1 hacer
+		si A[i] == C entonces
+			cont++
+		finsi
+	finpara
+
+	si cont > solucion entonces
+		solucion = cont
+	finsi
+
+	para i:=A.length()/2-m+2 hasta A.length()/2 hacer
+		si A[i-1] == C entonces
+			cont--
+		finsi
+		
+		si A[i+m-1] == C entonces
+			cont++
+		finsi
+
+		si cont > solucion entonces
+			solucion = cont
+		finsi
+
+		si solucion == m entonces
+			return solucion
+		finsi
+	finpara
+	
+	return solucion
+
+end

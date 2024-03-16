@@ -1,0 +1,28 @@
+EFICIENCIA DE LA RESOLUCIÓN DIRECTA:
+
+En este algoritmo el mejor caso sería que las primeras m posiciones tuviesen el caracter C.
+
+t_{m}(n) = \sum_{i=0}^{m-1}{3} + 2 = 3m + 2 => t(n) \in \Omega(1)
+
+Para este algortimo el peor caso podría ser uno en el que no exista el caracter C y se recorra la cadena entera.
+
+t_{M}(n) = \sum_{i=0}^{m-1}{2} + 1 + 1 + \sum_{i=1}^{n-m}{5} + 1 = 5n - 3m - 3 => t(n) \in O(n)
+
+
+EFICIENCIA DE LA FUNCIÓN COMBINAR:
+
+En esta función el mejor caso es que la solución no se encuentre en la fusión de ambas cadenas.
+
+t_{m}(n) = 4 => t(n) \in \Omega(1)
+
+El peor caso para esta función sería no encontrar una solución óptima.
+
+t_{M}(n) = 3 + \sum_{i=l/2-m+1}^{l/2}{2} + 4 + \sum_{l/2-m+2}^{l/2}{5} + 1 = 7m + 3 => t(n) \in O(1)
+
+
+EFICIENCIA DE DIVIDE Y VENCERÁS:
+
+t(n) = O(n) para n<n_{0}
+t(n) = 2t(n/2) + O(1) para n>=n_{0}
+
+Por lo tanto la complejidad de este algoritmo es O(n)
