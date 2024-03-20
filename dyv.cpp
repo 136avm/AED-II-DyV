@@ -118,6 +118,8 @@ int main() {
     array<int, 2> solucion = divideYVenceras(A, C, m);
     gettimeofday(&tf,NULL);
     tiempo = (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000;
-    cout << tiempo << endl;
+    if(solucion[0] == resolucionDirecta(A, C, m)[0]) {
+        cout << tiempo << endl;
+    }
     return 0;
 }
