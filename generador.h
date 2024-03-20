@@ -7,6 +7,7 @@ using namespace std;
 
 string generarCadena(int n) {
     string cadena = "";
+    srand(time(0));
     for(int i=0; i<n; i++) {
         cadena += (char)('a' + (rand() % 26));
     }
