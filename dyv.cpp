@@ -109,9 +109,25 @@ array<int, 2> divideYVenceras(string A, char C, int m) {
 string generarCadena(int n){
     string cadena;
     srand(time(0));
-    for (int i = 0; i < n; ++i) {
+    for(int i = 0; i < n; ++i) {
         char letra = 'a' +rand()%26;
         cadena.push_back(letra);
+    }
+    return cadena;
+}
+
+string generarMejorCaso(int n) {
+    string cadena;
+    for(int i=0; i<n; i++) {
+        cadena += 'c';
+    }
+    return cadena;
+}
+
+string generarPeorCaso(int n) {
+    string cadena;
+    for(int i=0; i<n; i++) {
+        cadena += 'a';
     }
     return cadena;
 }
