@@ -108,7 +108,7 @@ array<int, 2> divideYVenceras(string A, char C, int m) {
 }
 
 int main() {
-    string A = generarCadena(1000000);
+    string A = generarPeorCaso(1000000, 'c');
     char C = 'c';
     int m = A.length()/1000;
     array<int, 2> solucion = divideYVenceras(A, C, m);
