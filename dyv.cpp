@@ -3,6 +3,7 @@
 #include <array>
 #include <cmath>
 #include "generador.h"
+#include <sys/time.h>
 using namespace std;
 
 array<int, 2> resolucionDirecta(string A, char C, int m) {
@@ -111,19 +112,12 @@ int main() {
     string A = generarCadena(1000000);
     char C = 'c';
     int m = A.length()/1000;
+    double tiempo;
+    struct timeval ti, tf;
+    gettimeofday(&ti,NULL);
     array<int, 2> solucion = divideYVenceras(A, C, m);
-    if(solucion[0] > 0) {
-       cout << "La cadena con más ocurrencias de " << C << " es: " << A.substr(solucion[1], m) << " con " << solucion[0] << " ocurrencias."
-         << " Y empieza en el índice " << solucion[1] << endl; 
-    } else {
-        cout << "No se ha encontrado ninguna ocurrencia de " << C << " en la cadena." << endl;
-    }
-
-    // Comprobación
-    if(solucion[0] == resolucionDirecta(A, C, m)[0]) {
-        cout << "El algoritmo de resolución directa ha funcionado." << endl;
-    } else {
-        cout << "El algoritmo de resolución directa no ha funcionado." << endl;
-    }
+    gettimeofday(&tf,NULL);
+    tiempo = (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000;
+    cout << tiempo << endl;
     return 0;
 }
