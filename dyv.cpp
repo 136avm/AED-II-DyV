@@ -2,6 +2,7 @@
 #include <string>
 #include <array>
 #include <cmath>
+#include "generador.h"
 using namespace std;
 
 array<int, 2> resolucionDirecta(string A, char C, int m) {
@@ -104,32 +105,6 @@ array<int, 2> divideYVenceras(string A, char C, int m) {
     else {
         return resolucionDirecta(A, C, m);
     }
-}
-
-string generarCadena(int n){
-    string cadena = "";
-    srand(time(0));
-    for(int i = 0; i < n; ++i) {
-        char letra = 'a' +rand()%26;
-        cadena += letra;
-    }
-    return cadena;
-}
-
-string generarMejorCaso(int n) {
-    string cadena = "";
-    for(int i=0; i<n; i++) {
-        cadena += 'c';
-    }
-    return cadena;
-}
-
-string generarPeorCaso(int n) {
-    string cadena = "";
-    for(int i=0; i<n; i++) {
-        cadena += 'a';
-    }
-    return cadena;
 }
 
 int main() {
