@@ -106,17 +106,18 @@ array<int, 2> divideYVenceras(string A, char C, int m) {
     }
 }
 
+string generarCadena(int n){
+    string cadena;
+    srand(time(0));
+    for (int i = 0; i < n; ++i) {
+        char letra = 'a' +rand()%26;
+        cadena.push_back(letra);
+    }
+    return cadena;
+}
+
 int main() {
-    string A;
-    for(int i = 0; i < 3334; i++) {
-        A += 'a';
-    }
-    for(int i = 0; i < 3333; i++) {
-        A += 'b';
-    }
-    for(int i = 0; i < 3333; i++) {
-        A += 'c';
-    }
+    string A = generarCadena(1000000);
     char C = 'c';
     int m = A.length()/1000;
     array<int, 2> solucion = divideYVenceras(A, C, m);
@@ -125,6 +126,13 @@ int main() {
          << " Y empieza en el índice " << solucion[1] << endl; 
     } else {
         cout << "No se ha encontrado ninguna ocurrencia de " << C << " en la cadena." << endl;
+    }
+
+    // Comprobación
+    if(solucion[0] == resolucionDirecta(A, C, m)[0]) {
+        cout << "El algoritmo de resolución directa ha funcionado." << endl;
+    } else {
+        cout << "El algoritmo de resolución directa no ha funcionado." << endl;
     }
     return 0;
 }
